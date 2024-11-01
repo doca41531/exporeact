@@ -14,13 +14,18 @@ const Pricepage = () => {
     const [imageSrc, setImageSrc] = useState(null);
     const [userType, setUserType] = useState('01');  // 사용자가 선택한 user_type을 저장
     const [options, setOptions] = useState([]);    // type select box의 옵션을 저장
-  
+    const [errorCheck, seterrorCheck] = useState(true)
     const closemodal = () => {
         setisOpen(false)
     }
 
     const openmodal = () => {
         setisOpen(true)
+        setInterval(() => {
+            if(imageSrc === false){
+                seterrorCheck(false)
+            }
+        }, 10000);
     }
 
     // user_type이 변경될 때 호출되는 핸들러
@@ -57,7 +62,7 @@ const Pricepage = () => {
             setprice(result.price)
       } catch (error) {
         console.error("Error:", error);
-        setResponse('Failed to fetch data');
+        seterrorCheck(false);
       }
     }
 
@@ -68,17 +73,20 @@ const Pricepage = () => {
                 <h3 className={Maincss.header_logo}>
                     <a href="#"><p className={Maincss.title_logo}>EcoGourmet</p></a>
                 </h3>
-                <ul>
-                    <li>
-                        <Link to='/'>홈</Link>
-                    </li>
-                    <li>
-                        <Link to='/price'>도매시장</Link>
-                    </li>
-                    <li>
-                        <Link to='/rent'>텃밭분양</Link>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <Link to='/'>홈</Link>
+                        </li>
+                        <li>
+                            <Link to='/price'>도매시장</Link>
+                        </li>
+                        <li>
+                            <Link to='http://localhost:5500/'>텃밭분양</Link>
+                        </li>
+                        <li>
+                            <Link to='/board'>커뮤니티</Link>
+                        </li>
+                    </ul>
                 <div className={Maincss.login}>
                     <a href="#">login</a>
                     <div className={Maincss.login2}>
@@ -302,7 +310,10 @@ const Pricepage = () => {
                         <div className={Pricecss.footer} >
                             <div className={Pricecss.popup}>
                                 <div className={Pricecss.close} onClick={closemodal}>X</div>
-                                {imageSrc ? <div><img src={imageSrc} alt="Flask generated plot" /><p>{Math.round(price)}원 / kg당</p></div> : <p>로딩 중...</p>} 
+                                {
+                                    
+                                    errorCheck ? imageSrc ? <div><img src={imageSrc} alt="Flask generated plot" /><p>{Math.round(price)}원 / kg당</p></div> : <p>로딩 중...</p> : <p>해당 식품은 준비가 되어있지 않습니다<br></br> 나중에 다시 시도 해주세요</p>
+                                } 
                             </div>
                         </div>
                     )

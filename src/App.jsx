@@ -3,6 +3,7 @@ import Rentpage from "./page/Rentpage"
 import Mainpage from "./page/mainpage"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Termpage from "./page/termpage"
+import Board from "./page/Board"
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
             <Route path="/" element={<Mainpage />} />
             <Route path="/price" element={<Pricepage />} />
             <Route path="/rent" element={<Rentpage />} />
-            <Route path="/term" element={<Termpage />} />
+            <Route path="/board" element={<Board />} />
         </Routes>
     </BrowserRouter>
     </>

@@ -78,17 +78,20 @@ const Rentpage = () => {
                 <h3 className={Maincss.header_logo}>
                     <a href="#"><p className={Maincss.title_logo}>EcoGourmet</p></a>
                 </h3>
-                <ul>
-                    <li>
-                        <Link to='/'>홈</Link>
-                    </li>
-                    <li>
-                        <Link to='/price'>도매시장</Link>
-                    </li>
-                    <li>
-                        <Link to='/rent'>텃밭분양</Link>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <Link to='http://localhost:5173/price/'>홈</Link>
+                        </li>
+                        <li>
+                            <Link to='http://localhost:5173/price/price'>도매시장</Link>
+                        </li>
+                        <li>
+                            <Link to='http://localhost:5500/'>텃밭분양</Link>
+                        </li>
+                        <li>
+                            <Link to='http://localhost:5173/price/board'>커뮤니티</Link>
+                        </li>
+                    </ul>
                 <div className={Maincss.login}>
                     <a href="#">login</a>
                     <div className={Maincss.login2}>

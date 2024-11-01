@@ -16,10 +16,10 @@ const Header = () => {
                     <Link to='/price'>도매시장</Link>
                 </li>
                 <li>
-                    <Link to='/rent'>도매시장</Link>
+                    <Link to='/rent'>텃밭분양</Link>
                 </li>
                 <li>
-                    <a href="#">농업용어</a>
+                    <Link to='/board'>커뮤니티</Link>
                 </li>
             </ul>
             <div className={Maincss.login}>
